@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  gap: 50px;
+}
+
+.para {
+  padding: 0 50px;
+}
+
+form {
+  padding: 100px 50px;
+}
+
+.books {
+  display: flex;
+  gap: 50px;
+}
+
+label {
+  display: none;
+}
+
+input {
+  width: 450px;
+  padding: 10px;
+}
+
+button {
+  width: 250px;
+  padding: 10px 50px;
+  background: #8181ee;
+  color: #fff;
+}
+
+.categories {
+  padding: 0 50px;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px;
+  margin: 0 50px;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+}
