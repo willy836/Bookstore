@@ -25,6 +25,14 @@ form {
   padding: 100px 50px;
 }
 
+.book-container {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #e5e5e5;
+  margin: 0 50px;
+  margin-bottom: 20px;
+}
+
 .books {
   display: flex;
   gap: 50px;
@@ -54,7 +62,12 @@ button {
   display: flex;
   flex-direction: column;
   padding: 10px 50px;
-  margin: 0 50px;
-  border: 1px solid #e5e5e5;
   margin-bottom: 10px;
+}
+
+.remove-btn {
+  width: fit-content;
+  height: 40px;
+  align-self: center;
+  margin-right: 20px;
 }
