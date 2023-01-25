@@ -39,6 +39,7 @@ const Form = () => {
               type="text"
               placeholder="Book title"
               id="title"
+              required
               value={title}
               onChange={handleTitle}
             />
@@ -48,6 +49,7 @@ const Form = () => {
               type="text"
               placeholder="Book author"
               id="author"
+              required
               value={author}
               onChange={handleAuthor}
             />

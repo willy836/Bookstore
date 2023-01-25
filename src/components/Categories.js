@@ -1,20 +1,21 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { checkStatus } from '../redux/categories/categories';
+import Header from './Header';
 
 const Categories = () => {
-  const status = useSelector((state) => state.categories);
   const dispatch = useDispatch();
 
-  const handleClick = () => {
+  const handleStatusClick = () => {
     dispatch(checkStatus());
   };
+
   return (
     <div className="categories">
-      <button type="button" onClick={handleClick}>
-        Check Status
+      <Header />
+      <button type="button" onClick={handleStatusClick}>
+        CHECK STATUS
       </button>
-      <p>{status}</p>
     </div>
   );
 };

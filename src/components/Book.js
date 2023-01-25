@@ -8,7 +8,6 @@ const Book = (props) => {
   const { id, title, author } = props;
   const handleRemoveClick = (id) => {
     dispatch(removeBook(id));
-    console.log('remove btn clicked!', id);
   };
   return (
     <div className="book-container">

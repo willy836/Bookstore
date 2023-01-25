@@ -45,10 +45,10 @@ export const addBook = (book) => ({
   },
 });
 
-export const removeBook = (book) => ({
+export const removeBook = (id) => ({
   type: REMOVEBOOK,
   payload: {
-    id: book.id,
+    id,
   },
 });
 
