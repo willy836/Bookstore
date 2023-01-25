@@ -2,7 +2,7 @@
 const CHECKSTATUS = 'bookstore/categories/CHECKSTATUS';
 
 // Reducer
-const categoriesReducer = (state = { categories: [] }, action) => {
+const categoriesReducer = (state = [], action) => {
   switch (action.type) {
     case CHECKSTATUS:
       return 'Under construction';
