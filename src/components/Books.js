@@ -11,9 +11,11 @@ const Books = () => {
   }, [dispatch]);
   const books = useSelector((state) => state.books);
   return (
-    <div>
-      <Booklist books={books} />
-      <Form />
+    <div className="bg-main">
+      <div className="main">
+        <Booklist books={books} />
+        <Form />
+      </div>
     </div>
   );
 };
