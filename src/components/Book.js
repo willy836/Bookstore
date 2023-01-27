@@ -12,19 +12,41 @@ const Book = (props) => {
     dispatch(removeBook(id));
   };
   return (
-    <div className="book-container">
-      <div className="book">
-        <p className="bk">{title}</p>
-        <p className="bk">{author}</p>
-        <p className="bk">{category}</p>
+    <div className="book-block">
+      <div className="book-container">
+        <div className="book">
+          <h4 className="bk-category">{category}</h4>
+          <h2 className="bk-title">{title}</h2>
+          <p className="bk-author">{author}</p>
+          <div className="cre">
+            <p className="comment">Comments</p>
+            <button
+              type="button"
+              className="remove"
+              onClick={() => handleRemoveClick(id)}
+            >
+              Remove
+            </button>
+            <p className="edit">Edit</p>
+          </div>
+        </div>
       </div>
-      <button
-        type="button"
-        className="remove-btn"
-        onClick={() => handleRemoveClick(id)}
-      >
-        Remove
-      </button>
+      <div className="right-block">
+        <div className="progress">
+          <div className="circle-progress" />
+          <div className="level">
+            <h4 className="percentage">64%</h4>
+            <p className="completed">Completed</p>
+          </div>
+        </div>
+        <div className="chapter">
+          <p className="current-ch">CURRENT CHAPTER</p>
+          <h6 className="ch">Chapter 17</h6>
+          <button type="button" className="btn-progress">
+            UPDATE PROGRESS
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

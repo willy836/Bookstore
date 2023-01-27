@@ -41,7 +41,8 @@ const Form = () => {
   return (
     <div>
       <form>
-        <h3>ADD NEW BOOK</h3>
+        <hr />
+        <h3 className="add-book">ADD NEW BOOK</h3>
         <div className="books">
           <div className="label-div">
             <input
@@ -63,7 +64,7 @@ const Form = () => {
               onChange={handleAuthor}
             />
           </div>
-          <div>
+          <div className="sel">
             <select
               name="category"
               id="category"
@@ -78,7 +79,7 @@ const Form = () => {
             </select>
           </div>
           <div>
-            <button type="submit" onClick={handleAddbook}>
+            <button type="submit" className="add-btn" onClick={handleAddbook}>
               ADD BOOK
             </button>
           </div>
