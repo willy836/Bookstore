@@ -7,7 +7,7 @@ import Form from './Form';
 const Books = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getBooks);
+    dispatch(getBooks());
   }, [dispatch]);
   const books = useSelector((state) => state.books);
   return (
