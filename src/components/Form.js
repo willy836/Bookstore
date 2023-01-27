@@ -1,15 +1,14 @@
-/* eslint-disable */
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
-import { addBook } from "../redux/books/books";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { addBook } from '../redux/books/books';
 
-const categories = ["Science", "Fiction", "Philosophy", "Sociology"];
+const categories = ['Science', 'Fiction', 'Philosophy', 'Sociology'];
 
 const Form = () => {
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [category, setCategory] = useState("");
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
   const dispatch = useDispatch();
 
   const handleTitle = (e) => {
@@ -35,9 +34,9 @@ const Form = () => {
     };
 
     dispatch(addBook(newBook));
-    setTitle("");
-    setAuthor("");
-    setCategory("Science");
+    setTitle('');
+    setAuthor('');
+    setCategory('Science');
   };
   return (
     <div>

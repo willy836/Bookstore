@@ -1,21 +1,19 @@
-/* eslint-disable */
-import axios from "axios";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from 'axios';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const ADDBOOK = "bookstore/books/ADDBOOK";
-const REMOVEBOOK = "bookstore/books/REMOVEBOOK";
-const GETBOOK = "bookstore/books/GETBOOK";
+const ADDBOOK = 'bookstore/books/ADDBOOK';
+const REMOVEBOOK = 'bookstore/books/REMOVEBOOK';
+const GETBOOK = 'bookstore/books/GETBOOK';
 
-const apikey = "3NIoYi0HmR3w0D7JOHlP";
+const apikey = '3NIoYi0HmR3w0D7JOHlP';
 const URL = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${apikey}/books`;
 
 export const getBooks = createAsyncThunk(GETBOOK, async () => {
   const response = await axios.get(URL);
   if (response.data) {
     return response.data;
-  } else {
-    return [];
   }
+  return [];
 });
 
 export const addBook = createAsyncThunk(ADDBOOK, async (data) => {
@@ -31,7 +29,7 @@ export const removeBook = createAsyncThunk(REMOVEBOOK, async (id) => {
 const booksArr = [];
 
 const bookSlice = createSlice({
-  name: "books",
+  name: 'books',
   initialState: booksArr,
   reducers: {},
   extraReducers: (builder) => {
