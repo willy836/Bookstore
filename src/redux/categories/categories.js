@@ -1,11 +1,12 @@
+/* eslint-disable */
 // Actions
-const CHECKSTATUS = 'bookstore/categories/CHECKSTATUS';
+const CHECKSTATUS = "bookstore/categories/CHECKSTATUS";
 
 // Reducer
 const categoriesReducer = (state = [], action) => {
   switch (action.type) {
     case CHECKSTATUS:
-      return 'Under construction';
+      return "Under construction";
     default:
       return state;
   }

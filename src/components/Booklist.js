@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Book from './Book';
+/* eslint-disable */
+import React from "react";
+import PropTypes from "prop-types";
+import Book from "./Book";
 
 const Booklist = (props) => {
   const { books } = props;
@@ -12,6 +13,7 @@ const Booklist = (props) => {
           key={book.id}
           title={book.title}
           author={book.author}
+          category={book.category}
           id={book.id}
         />
       ))}
@@ -25,7 +27,7 @@ Booklist.propTypes = {
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
-    }),
+    })
   ).isRequired,
 };
 

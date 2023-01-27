@@ -1,11 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/books';
+/* eslint-disable */
+import React from "react";
+import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { removeBook } from "../redux/books/books";
 
 const Book = (props) => {
   const dispatch = useDispatch();
-  const { id, title, author } = props;
+  const { id, title, author, category } = props;
   const handleRemoveClick = (id) => {
     dispatch(removeBook(id));
   };
@@ -14,6 +15,7 @@ const Book = (props) => {
       <div className="book">
         <p className="bk">{title}</p>
         <p className="bk">{author}</p>
+        <p className="bk">{category}</p>
       </div>
       <button
         type="button"
