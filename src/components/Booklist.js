@@ -12,6 +12,7 @@ const Booklist = (props) => {
           key={book.id}
           title={book.title}
           author={book.author}
+          category={book.category}
           id={book.id}
         />
       ))}

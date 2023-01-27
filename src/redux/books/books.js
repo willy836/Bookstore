@@ -1,55 +1,65 @@
-import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-// Actions
 const ADDBOOK = 'bookstore/books/ADDBOOK';
 const REMOVEBOOK = 'bookstore/books/REMOVEBOOK';
+const GETBOOK = 'bookstore/books/GETBOOK';
 
-// Initial state
-const initialState = [
-  {
-    id: uuidv4(),
-    title: 'Gone with the Wind',
-    author: 'Margaret Mitchell',
-  },
-  {
-    id: uuidv4(),
-    title: 'Gifted Hands',
-    author: 'Ben Carson',
-  },
-  {
-    id: uuidv4(),
-    title: 'Rich Dad Poor Dad',
-    author: 'Robert Kiyosaki',
-  },
-];
+const apikey = '3NIoYi0HmR3w0D7JOHlP';
+const URL = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${apikey}/books`;
 
-// Reducer
-const booksReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADDBOOK:
-      return [...state, action.payload];
-    case REMOVEBOOK:
-      return state.filter((book) => book.id !== action.payload.id);
-    default:
-      return state;
+export const getBooks = createAsyncThunk(GETBOOK, async () => {
+  const response = await axios.get(URL);
+  if (response.data) {
+    return response.data;
   }
-};
+  return [];
+});
 
-// Action creators
-export const addBook = (book) => ({
-  type: ADDBOOK,
-  payload: {
-    id: uuidv4(),
-    title: book.title,
-    author: book.author,
+export const addBook = createAsyncThunk(ADDBOOK, async (data) => {
+  await axios.post(URL, data);
+  return data;
+});
+
+export const removeBook = createAsyncThunk(REMOVEBOOK, async (id) => {
+  await axios.delete(`${URL}/${id}`);
+  return id;
+});
+
+const booksArr = [];
+
+const bookSlice = createSlice({
+  name: 'books',
+  initialState: booksArr,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(getBooks.fulfilled, (state, action) => {
+      const newBooks = state;
+      Object.entries(action.payload).forEach((book) => {
+        newBooks.push({
+          id: book[0],
+          title: book[1][0].title,
+          author: book[1][0].author,
+          category: book[1][0].category,
+        });
+      });
+      return newBooks;
+    });
+
+    builder.addCase(addBook.fulfilled, (state, action) => {
+      state.push({
+        id: action.payload.item_id,
+        title: action.payload.title,
+        author: action.payload.title,
+        category: action.payload.category,
+      });
+    });
+
+    builder.addCase(removeBook.fulfilled, (state, action) => {
+      const newBooks = state.filter((book) => book.id !== action.payload);
+      return newBooks;
+    });
   },
 });
 
-export const removeBook = (id) => ({
-  type: REMOVEBOOK,
-  payload: {
-    id,
-  },
-});
-
-export default booksReducer;
+export default bookSlice.reducer;
