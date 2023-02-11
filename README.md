@@ -78,7 +78,7 @@ add a book and remove a selected book
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](coming soon)
+- [Live Demo Link](https://bookstore-app-willy836.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,7 +128,7 @@ To run tests, run the following command:
 
 You can deploy this project using:
 
-- render
+- netlify
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
